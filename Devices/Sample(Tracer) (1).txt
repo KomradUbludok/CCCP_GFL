@@ -1,0 +1,42 @@
+Tracers are special bullets that ignite upon firing, making the projectile visible to the naked eye.
+Below is an example of a tracer round, note that it is exactly the same as a normal round so an explanation is not provided. 
+Usually the only difference is the color, but the two rounds don't even have to be the same class of object. Tracer rounds are optional.
+
+A standard bullet tracer is set up something like this. For an explanation, see round.
+
+AddAmmo = Round
+	InstanceName = Round Gun Tracer
+	ParticleCount = 1
+	Particle = MOPixel
+		InstanceName = Particle Gun Tracer
+		RestThreshold = 500
+		LifeTime = 1500
+		HitsMOs = 1
+		GetsHitByMOs = 0
+		Color = Color
+			R = 247
+			G = 247
+			B = 147
+		Atom = Atom
+			Material = Material
+				CopyOf = Bullet Metal
+			TrailColor = Color
+				R = 255
+				G = 255
+				B = 159
+			TrailLength = 45
+The Round To Tracer ratio is found in the magazine;
+
+	RoundCount = 11
+	RTTRatio = 4
+	RegularRound = Round
+		CopyOf = Round Gun
+	TracerRound = Round
+		CopyOf = Round Gun Tracer
+Above shows that there are 11 rounds in a magazine, and every fourth round is a tracer round.
+Below is an example of a magazine with no tracer rounds;
+
+	RoundCount = 11
+	RTTRatio = 0
+	RegularRound = Round
+		CopyOf = Round Gun

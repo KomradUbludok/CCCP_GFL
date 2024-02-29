@@ -1,0 +1,42 @@
+AddAmmo = Round
+	InstanceName = Round SMG
+	ParticleCount = 1
+	Particle = MOPixel
+		InstanceName = Particle SMG
+		Mass = 0.008
+		RestThreshold = 500
+		LifeTime = 1500
+		Sharpness = 250
+		HitsMOs = 1
+		GetsHitByMOs = 0
+		Color = Color
+			R = 143
+			G = 143
+			B = 143
+		Atom = Atom
+			Material = Material
+				CopyOf = Bullet Metal
+			TrailColor = Color
+				R = 155
+				G = 155
+				B = 155
+			TrailLength = 25
+	Shell = MOSParticle
+		CopyOf = Casing
+	FireVelocity = 80
+	ShellVelocity = 10
+	Separation = 5
+The Explanation
+Now the round will be broken down variable by variable. The projectile particles, generally MOPixels, and shells, generally MOSParticles, are explained elsewhere.
+
+AddAmmo = Round // The instance call, defines the next text as parts of a round.
+	InstanceName = Round SMG // The name used to refer to the instance later.
+	ParticleCount = 1 // The number of particles created when this round is used. This is what makes a shotgun a shotgun.
+	Particle = MOPixel // Defines the particle that will make up the round. Does not need to be a MOPixel.
+		CopyOf = Particle SMG // Copying a previously defined and named object.*
+	Shell = MOSParticle // Defines the Shell that will eject as the round fires. Does not need to be a MOSParticle.
+		CopyOf = Casing // Copying a previously defined and named object.
+	FireVelocity = 80 // This is the velocity at which the round particle will be fired.
+	ShellVelocity = 10 // This is the velocity at which the shell will be ejected.
+	Separation = 5 // This is the variance of the X position from the MuzzleOffset of the HDFirearm.
+* If you want to define a MOPixel within a round, you just need to have it tabbed as it is in the example, and use the particle = line as your instance call. For anything other than a MOPixel, you may find it to be easier to define it and then use a CopyOf in the round, as shown. When using a MOPixel, as most rounds do, keep in mind that it's properties are very important.

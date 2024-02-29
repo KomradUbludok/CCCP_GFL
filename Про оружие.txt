@@ -1,0 +1,292 @@
+**1 ЧАСТЬ**Эффект патрона оружия
+
+AddEffect = MOPixel
+PresetName = Bullet Gatling Gun//название эффекта патрона оружия( для записи используются только латинские буквы (A-z), и арабские цифры (1-9))
+Mass = 0.062// вес эффекта,измеряется в кг (килограммах)
+LifeTime = 780// время "жизни" эффекта патрона,когда он вылетает из оружия вместе с пулей,измеряется в мсек.
+Sharpness = 42//показывает Насколько острая эта частица/эффект пули Имеет значение только для MOSParticles и MOPixels".
+HitsMOs = 1 //влияет ли этот объект на другой (0-нет,1-да) Имеет значение только для MOSParticles и MOPixels".
+GetsHitByMOs = 0 //влияют ли на этот объект другие объекты у которых HitsMOs=1 (0-нет,1-да) Имеет значение только для MOSParticles и MOPixels".
+Color = Color//указывает цвет эффекта патрона
+R = 210///какова будет концентрация красного (red) цвета в эффекте патрона
+G = 198////какова будет концентрация зелёного (green) цвета в эффекте патрона
+B = 178////какова будет концентрация синего (blue) цвета эффекте патрона
+Atom = Atom
+Material = Material//показывает наличие материала эффекта патрона
+CopyOf = Bullet Metal// показывает из какого материала состоит эффект патрона
+TrailColor = Color//цвет "хвоста", оставляемого эффектом патрона
+R = 210//какова будет концентрация красного (red) цвета в "хвосте"
+G = 198//какова будет концентрация зелёного (green) цвета в "хвосте"
+B = 178//какова будет концентрация синего (blue) цвета в "хвосте"
+TrailLength = 40//длина следа ("хвоста") оставляемого эффектом патрона. Измеряется в пикселях (точках).
+
+**2 ЧАСТЬ**Трассер Эффекта патрона оружия
+
+AddEffect = MOPixel
+CopyOf = Bullet Gatling Gun// название эффекта патрона введённое вначале (см начало этой статьи)
+PresetName = Tracer Gatling Gun//название трассера эффекта патрона( для записи используются только латинские буквы (A-z), и арабские цифры (1-9))
+Mass = 0.068// вес трассера эффекта патрона,измеряется в кг (килограммах)
+Sharpness = 42//показывает Насколько острая эта частица/трассер Имеет значение только для MOSParticles и MOPixels".
+Color = Color//цвет трассера эффекта патрона пули
+R = 255//какова будет концентрация красного (red) цвета в трассере эффекта патрона
+G = 226//какова будет концентрация зелёного (green) цвета в трассере эффекта патрона
+B = 0//какова будет концентрация синего (blue) цвета в трассере эффекта патрона
+Atom = Atom
+Material = Material//показывает наличие материала трассера эффекта патрона
+CopyOf = Bullet Metal// показывает из какого материала состоит эффект патрона трассера
+TrailColor = Color //цвет "хвоста", оставляемого трассером эффектом патрона
+R = 255//какова будет концентрация красного (red) цвета в "хвосте"
+G = 226//какова будет концентрация зелёного (green) цвета в "хвосте"
+B = 0//какова будет концентрация синего (blue) цвета в "хвосте"
+TrailLength = 50//длина следа ("хвоста") оставляемого трассером эффекта патрона. Измеряется в пикселях (точках).
+
+**3 ЧАСТЬ** настройка патрона оружия
+
+AddAmmo = Round//показывает то,что эта пуха имеет обойму и патроны
+PresetName = Round Gatling Gun//название патрона оружия
+ParticleCount = 1//количество выпускаемых партиклов (патронов) за раз
+Particle = MOPixel//новый партикл (патрон)
+CopyOf = Bullet Gatling Gun//название эффекта трассера патрона,которое мы вводили выше
+Shell = MOSParticle//новая гильза от патрона
+CopyOf = Casing
+FireVelocity = 120//это скорость пули,выше 500 не ставить,измеряется в м/с (20 пикселей в игре = 1 метру.)
+ShellVelocity = 13//это скорость вылетающих гильз,выше 500 не ставить,измеряется в м/с (20 пикселей в игре = 1 метру.)
+Separation = 0
+
+AddAmmo = Round//показывает то,что эта пуха имеет обойму и патроны (уже трассер)
+PresetName = Tracer Gatling Gun//название трассера патрона оружия
+ParticleCount = 1//количество выпускаемых трассеров за раз,так как не тестил этот параметр,советую не изменять
+Particle = MOPixel//новый партикл трассера
+CopyOf = Tracer Gatling Gun//название эффекта трассера патрона,которое мы вводили выше
+Shell = MOSParticle//новая гильза от трассера патрона
+CopyOf = Casing
+FireVelocity = 121//это скорость трасссера патрона,выше 500 не ставить,измеряется в м/с (20 пикселей в игре = 1 метру.)
+ShellVelocity = 13//это скорость вылетающих гильз трассера,выше 500 не ставить,измеряется в м/с (20 пикселей в игре = 1 метру.)
+Separation = 0
+
+**4 ЧАСТЬ** настройка магазина оружия
+
+AddAmmo = Magazine//новый магазин оружия
+PresetName = Magazine Gatling Gun//названия магазина оружия
+Mass = 10// вес магазина ( прибавляется к весу пушки),измеряется в кг (килограммах)
+HitsMOs = 0 //влияет ли этот объект на другой (0-нет,1-да) Имеет значение только для MOSParticles и MOPixels".
+GetsHitByMOs = 0 //влияют ли на этот объект другие объекты у которых HitsMOs=1 (0-нет,1-да) Имеет значение только для MOSParticles и MOPixels".
+SpriteFile = ContentFile //добавление нового файла в ини
+FilePath = Coalition.rte/Devices/Sprites/MagazineGatlingunA.bmp //ссылка на рисунок магазина
+FrameCount = 1//количество используемых кадров (для анимации)
+
+но если вы будете это изменять то тогда вам ниже этой строки надо добавить
+SpriteAnimMode = 2
+SpriteAnimDuration = 750
+SpriteOffset = Vector //расположение спрайта
+X = -3//расположение спрайта на оси x ( влево-вправо как в математике)
+Y = -7//расположение спрайта на оси y ( вверх-вниз как в математике)
+EntryWound = AEmitter
+CopyOf = Dent Metal
+ExitWound = AEmitter
+CopyOf = Dent Metal
+AtomGroup = AtomGroup
+AutoGenerate = 1
+Material = Material
+CopyOf = Military Stuff
+Resolution = 2
+Depth = 0
+DeepGroup = AtomGroup
+AutoGenerate = 1
+Material = Material
+CopyOf = Military Stuff
+Resolution = 3
+Depth = 1
+DeepCheck = 0
+JointStrength = 200//это прозрачность магазина если сделать много то когда на него наступишь он не сломается
+JointStiffness = 1
+JointOffset = Vector
+X = 0
+Y = 0
+ParentOffset = Vector
+X = -12
+Y = 0
+DrawAfterParent = 0
+RoundCount = 100//количество патронов в обойме оружия
+RTTRatio = 6
+RegularRound = Round
+CopyOf = Round Gatling Gun
+TracerRound = Round
+CopyOf = Tracer Gatling Gun//название эффекта трассера патрона,которое мы вводили выше
+AddGib = Gib
+GibParticle = MOPixel
+CopyOf = Spark Yellow 1
+Count = 5
+Spread = 2.25
+MaxVelocity = 20
+MinVelocity = 8
+AddGib = Gib
+GibParticle = MOSParticle
+CopyOf = Gib Metal Rust Micro A
+Count = 4
+Spread = 2.25
+MaxVelocity = 15
+MinVelocity = 5
+GibWoundLimit = 2 //прочность магазина пухи,чем выше, тем лучше прочность
+
+**5 ЧАСТЬ** настройка самого оружия
+
+AddDevice = HDFirearm//это оружие будет атакаующим (первичным у акторов,то есть они будут брать его в 1 очередь)
+PresetName = Gatling Gun//название вашего оружия
+Description = Coalition's feared heavy weapon that features a large magazine and amazing firepower. Reloading is not an issue because there is enough ammo to kill everyone even remotely close.//описание вашего оружия (не обязательно)
+AddToGroup = Weapons//в какую группу оружие будет помещенно в режиме стройки (не путать с режимом покупки)
+Mass = 54// вес оружия,измеряется в кг (килограммах)
+HitsMOs = 0//влияет ли этот объект на другой (0-нет,1-да) Имеет значение только для MOSParticles и MOPixels".
+GetsHitByMOs = 1//влияют ли на этот объект другие объекты у которых HitsMOs=1 (0-нет,1-да) Имеет значение только для MOSParticles и MOPixels".
+SpriteFile = ContentFile//новая картинка
+FilePath = Coalition.rte/Devices/Sprites/GatlingunA.bmp//путь к картинке с оружием (пишем без 000,001,комп возьмёт все рисунки этой пухи с этими цифрами)
+FrameCount = 3//количество используемых кадров (для анимации)
+SpriteOffset = Vector//расположение спрайта
+X = -17//расположение спрайта на оси x ( влево-вправо как в математике)
+Y = -5//расположение спрайта на оси y ( вверх-вниз как в математике)
+SpriteAnimMode = 4
+SpriteAnimDuration = 500//скорость анимации (скорость замены рисунков) измеряется в м/сек
+EntryWound = AEmitter
+CopyOf = Dent Metal
+ExitWound = AEmitter
+CopyOf = Dent Metal
+GoldValue = 210//цена оружия
+AtomGroup = AtomGroup
+AutoGenerate = 1
+Material = Material
+CopyOf = Military Stuff
+Resolution = 4
+Depth = 0
+DeepGroup = AtomGroup
+AutoGenerate = 1
+Material = Material
+CopyOf = Military Stuff
+Resolution = 4
+Depth = 10
+DeepCheck = 0
+JointStrength = 75
+JointStiffness = 0.5
+JointOffset = Vector
+X = -7
+Y = 3
+DrawAfterParent = 0
+StanceOffset = Vector
+X = 3
+Y = 8
+SharpStanceOffset = Vector
+X = 2
+Y = 6
+SupportOffset = Vector
+X = -2
+Y = -3
+SharpLength = 100
+Magazine = Magazine//"прикрутка" магазина к пушке
+CopyOf = Magazine Gatling Gun//название магазина (то что мы вводили выше)
+Flash = Attachable
+CopyOf = Muzzle Flash Shotgun//музел (вспышка возле дула пушки в момент стрельбы,здесь стандартный)
+FireSound = Sound// звук атаки
+AddSample = ContentFile//новый файл со звуком
+FilePath = Base.rte/Sounds/Taka.wav
+EmptySound = Sound//
+AddSample = ContentFile//новый файл со звуком
+FilePath = Base.rte/Devices/EmptyClick3.wav//звук когда нет патронов (далее идёт автоматическая перезарядка)
+ReloadStartSound = Sound//звук начала перезарядки
+AddSample = ContentFile//новый файл со звуком
+FilePath = Base.rte/Devices/ReloadStart.wav//ссылка звук начала перезарядки
+ReloadEndSound = Sound// звук конца перезарядки
+AddSample = ContentFile//новый файл со звуком
+FilePath = Base.rte/Devices/ReloadEnd.wav//ссылка звук конца перезарядки
+RateOfFire = 1300// скорострельность (измеряется в м/сек.)
+
+//////// Spin up & Spin down variables//НАЧАЛО ДОБАВОЧНЫХ СТРОК! (Они тут не обсуждаются)
+
+ActivationDelay = 1000
+DeactivationDelay = 1000
+
+//////// Spinning Sound
+
+ActiveSound = Sound
+AddSample = ContentFile
+FilePath = Coalition.rte/Devices/Weapons/SpinSound.wav // Maybe you can control the pitch relative to the firing speed?
+LoopSetting = -1//КОНЕЦ ДОБАВОЧНЫХ СТРОК! (Они тут не обсуждаются)
+
+ReloadTime = 4000//время перезарядки оружия (измеряется в м/сек.)
+FullAuto = 1//тип стрельбы (0-пистолетный огонь. 1 - автоматический)
+FireIgnoresThis = 1//установка разброса пуль (0 - всегда патроны летят в одну точки или возле неё, в зависимости от параметра точности)
+ShakeRange = 9
+SharpShakeRange = 5
+NoSupportFactor = 4//проникаемость пули в обьекты на местности
+ParticleSpreadRange = 0.8
+ShellSpreadRange = 8
+ShellAngVelRange = 2
+MuzzleOffset = Vector//расположение точки вылета пуль из пушки
+X = 17//расположение спрайта на оси x ( влево-вправо как в математике)
+Y = -1//расположение спрайта на оси y ( вверх-вниз как в математике)
+EjectionOffset = Vector
+X = -10
+Y = -3
+AddGib = Gib
+GibParticle = MOPixel
+CopyOf = Spark Yellow 1
+Count = 8
+Spread = 2.25
+MaxVelocity = 20
+MinVelocity = 8
+AddGib = Gib
+GibParticle = MOPixel
+CopyOf = Spark Yellow 2
+Count = 10
+Spread = 2.25
+MaxVelocity = 20
+MinVelocity = 8
+AddGib = Gib
+GibParticle = MOPixel
+CopyOf = Drop Oil
+Count = 8
+Spread = 2.25
+MaxVelocity = 10
+MinVelocity = 1
+AddGib = Gib
+GibParticle = MOSParticle
+CopyOf = Gib Metal Rust Micro A
+Count = 18
+Spread = 2.25
+MaxVelocity = 15
+MinVelocity = 5
+AddGib = Gib
+GibParticle = MOSParticle
+CopyOf = Gib Metal Grey Micro A
+Count = 16
+Spread = 2.25
+MaxVelocity = 15
+MinVelocity = 5
+AddGib = Gib
+GibParticle = MOSRotating
+CopyOf = Gib Device Small J
+Count = 1
+AddGib = Gib
+GibParticle = MOSRotating
+CopyOf = Gib Device Small H
+Count = 1
+AddGib = Gib
+GibParticle = MOSRotating
+CopyOf = Coalition Weapons Gib I
+Count = 1
+Offset = Vector
+X = -2
+Y = -1
+AddGib = Gib
+GibParticle = MOSRotating
+CopyOf = Coalition Weapons Gib J
+Count = 1
+Offset = Vector
+X = -3
+Y = -1
+AddGib = Gib
+GibParticle = MOSRotating
+CopyOf = Coalition Weapons Gib G
+Count = 1
+Offset = Vector
+X = 5
+Y = 0
+GibWoundLimit = 5//броня оружия (слишком хрупкие пухи никто не любит...)

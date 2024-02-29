@@ -1,0 +1,233 @@
+The HDFirearm instance is set up in this fashion:
+
+AddDevice = HDFirearm
+	InstanceName = Gun Template
+	AddToGroup = Weapons
+	Mass = 3
+	HitsMOs = 0
+	GetsHitByMOs = 1
+	SpriteFile = ContentFile
+		FilePath = Base.rte/Devices/Pistols/Pistol.bmp
+	FrameCount = 2
+	SpriteOffset = Vector
+		X = -7
+		Y = -3
+	EntryWound = AEmitter
+		CopyOf = Dent Metal
+	ExitWound = AEmitter
+		CopyOf = Dent Metal
+	GoldValue = 5
+	AtomGroup = AtomGroup
+		AutoGenerate = 1
+		Material = Material
+			CopyOf = Military Stuff
+		Resolution = 4
+		Depth = 0
+	DeepGroup = AtomGroup
+		AutoGenerate = 1
+		Material = Material
+			CopyOf = Military Stuff
+		Resolution = 4
+		Depth = 10
+	DeepCheck = 1
+	JointStrength = 75
+	JointStiffness = 0.5
+	JointOffset = Vector
+		X = -3
+		Y = 2
+	DrawAfterParent = 0
+	OneHanded = 1
+	StanceOffset = Vector
+		X = 12
+		Y = 0
+	SharpStanceOffset = Vector
+		X = 13
+		Y = -2
+	SupportOffset = Vector
+		X = -1
+		Y = 3
+	SharpLength = 125
+	Magazine = Magazine
+		CopyOf = Magazine Pistol
+		ParentOffset = Vector
+			X = -2
+			Y = 1
+	Flash = Attachable
+		CopyOf = Muzzle Flash Pistol
+	FireSound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/Pistols/PistolBang.wav
+	EmptySound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/EmptyClick3.wav
+	ReloadStartSound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/ReloadStart.wav
+	ReloadEndSound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/ReloadEnd.wav
+	RateOfFire = 200
+	ReloadTime = 1500
+	FullAuto = 0
+	FireIgnoresThis = 1
+	ShakeRange = 13
+	SharpShakeRange = 3
+	NoSupportFactor = 1.5
+	ParticleSpreadRange = 3
+	ShellSpreadRange = 8
+	ShellAngVelRange = 2
+	MuzzleOffset = Vector
+		X = 5
+		Y = -1
+	EjectionOffset = Vector
+		X = -3
+		Y = -1
+	AddGib = Gib
+		GibParticle = MOPixel
+			CopyOf = Spark Yellow 1
+		Count = 3
+		Spread = 2.25
+		MaxVelocity = 20
+		MinVelocity = 8
+	GibWoundLimit = 2
+The Explanation
+Now we will break it down variable by variable (and split it into sections). (offsets and gibs will not be covered)
+
+AddDevice = HDFirearm // The instance call, defines the next text as parts of a HDFirearm.
+
+	InstanceName = Gun Template // The name used to refer to the instance later.
+
+	AddToGroup = Weapons // The group it will be under when you start a skirmish with no pre-placed brain.  Not required*
+
+	Mass = 3 // The mass in kg for example; 0.01 would be 10g, 0.1 would be 100g and 1 would be 1kg.
+
+	HitsMOs = 0 // Boolean value that determines if this particle can hit by other particles.
+
+	GetsHitByMOs = 1 // Boolean value that determines if this particle can be hit by other particles.
+
+	SpriteFile = ContentFile
+		FilePath = Base.rte/Devices/Pistols/Pistol.bmp // Tells The HDFirearm to use the sprite specified.
+
+	FrameCount = 2 // How many frames to use, 1 or 2 for the time being, one before shooting, one during shooting.
+
+	SpriteOffset = Vector
+		X = -7
+		Y = -3
+	EntryWound = AEmitter
+		CopyOf = Dent Metal // The emitter to use for where the bullet enters the HDF.
+
+	ExitWound = AEmitter
+		CopyOf = Dent Metal // The emitter to use for where the bullet exits the HDF.
+
+	GoldValue = 5 // How much the HDF costs.
+*HDFirearms automatically get put into the group weapons, if not put in any other groups.
+AtomGroups and Deepgroups
+
+	AtomGroup = AtomGroup // Defines the next text as parts of a AtomGroup
+
+		AutoGenerate = 1 // Defines whether or not to generate the an AtomGroup based on the sprite (1) or not (0).*
+
+		Material = Material // Defines the material that the round will be made up of.
+
+			CopyOf = Military Stuff // Reference to the material you want the round to be made of.
+
+		Resolution = 4 // Unknown.
+
+		Depth = 0 // 
+
+	DeepGroup = AtomGroup // Defines the next text as parts of a DeepGroup
+
+		AutoGenerate = 1
+		Material = Material
+			CopyOf = Military Stuff
+		Resolution = 4
+		Depth = 10
+
+	DeepCheck = 1 //
+*in which case you must define the object with a set of
+
+	JointStrength = 75 // How much force is required to be slung out of your grip.
+
+	JointStiffness = 0.5 // How much force is required to move the joint
+
+	JointOffset = Vector
+		X = -3
+		Y = 2
+
+	DrawAfterParent = 0 // Boolean value that determines if it is drawn in front of the parent a.k.a hand (1) or not (0).
+
+	OneHanded = 1 // Boolean value that determines if it is held with one hand (1) or two (0).
+
+	StanceOffset = Vector
+		X = 12
+		Y = 0
+	SharpStanceOffset = Vector
+		X = 13
+		Y = -2
+	SupportOffset = Vector
+		X = -1
+		Y = 3
+
+	SharpLength = 125 // Determines How far you can aim.
+
+	Magazine = Magazine
+		CopyOf = Magazine Pistol // Defines which magazine instance to use.
+
+		ParentOffset = Vector
+			X = -2
+			Y = 1
+
+	Flash = Attachable
+		CopyOf = Muzzle Flash Pistol // Defines which muzzle flash instance to use.
+Sounds
+
+	FireSound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/Pistols/PistolBang.wav // Tells The HDFirearm what sound to use when shooting.
+
+	EmptySound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/EmptyClick3.wav // ...when pulling the trigger but out of rounds.
+
+	ReloadStartSound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/ReloadStart.wav // ...when removing used magazine.
+
+	ReloadEndSound = Sound
+		AddSample = ContentFile
+			FilePath = Base.rte/Devices/ReloadEnd.wav // ...when installing new magazine.
+	RateOfFire = 200 // Measured in rounds per minute (RPM or round/min).
+
+	ReloadTime = 1500 // Amount of time it takes to reload in milliseconds.
+ 
+	FullAuto = 0 // Boolean value that determines if it is fully automatic (1) or not (0).
+
+	FireIgnoresThis = 1 // If the shot effects the HDF or the HDF's firer.
+
+	ShakeRange = 13 // Range of shake (inaccuracy) due to movement.
+
+	SharpShakeRange = 3 // Range of shake (inaccuracy) whilst aiming down the sights/barrel of HDF.
+
+	NoSupportFactor = 1.5 // Multiplier that effects ShakeRanges if the HDF is not supported with the other hand.
+
+	ParticleSpreadRange = 3 // Range (degrees) of bullet spread.
+
+	ShellSpreadRange = 8 // Range (degrees) of shell spread.
+
+	ShellAngVelRange = 2 // Range of angular velocity (how fast they rotate) on the shells.
+
+	MuzzleOffset = Vector
+		X = 5
+		Y = -1
+	EjectionOffset = Vector
+		X = -3
+		Y = -1
+	AddGib = Gib
+		GibParticle = MOPixel
+			CopyOf = Spark Yellow 1
+		Count = 3
+		Spread = 2.25
+		MaxVelocity = 20
+		MinVelocity = 8
+
+	GibWoundLimit = 2 // Amount of wounds required for the HDF to gib.

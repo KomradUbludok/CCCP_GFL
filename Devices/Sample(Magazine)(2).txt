@@ -1,0 +1,108 @@
+AddAmmo = Magazine
+	InstanceName = Magazine Pistol
+	Mass = 1 // kg
+	HitsMOs = 0
+	GetsHitByMOs = 0
+	SpriteFile = ContentFile
+		FilePath = Base.rte/Devices/Pistols/MagPistol.bmp
+	FrameCount = 1
+	SpriteOffset = Vector
+		X = -3
+		Y = -3
+	EntryWound = AEmitter
+		CopyOf = Dent Metal
+	ExitWound = AEmitter
+		CopyOf = Dent Metal
+	AtomGroup = AtomGroup
+		AutoGenerate = 1
+		Material = Material
+			CopyOf = Military Stuff
+		Resolution = 2
+		Depth = 0
+	DeepGroup = AtomGroup
+		AutoGenerate = 1
+		Material = Material
+			CopyOf = Military Stuff
+		Resolution = 3
+		Depth = 1
+	DeepCheck = 1
+	JointStrength = 200
+	JointStiffness = 1
+	JointOffset = Vector
+		X = 0
+		Y = -3
+	DrawAfterParent = 0
+	RoundCount = 11
+	RTTRatio = 0
+	RegularRound = Round
+		CopyOf = Round SMG
+	TracerRound = None
+The Explanation
+Now we will break it down variable by variable. Also see; rounds and tracers
+
+AddAmmo = Magazine // The instance call, defines the next text as parts of a Magazine.
+
+	InstanceName = Magazine Pistol // The name used to refer to the instance later.
+
+	Mass = 1 // The mass in kg for example; 0.01 would be 10g, 0.1 would be 100g and 1 would be 1kg.
+
+	HitsMOs = 0 // Boolean value that determines if this particle can hit by other particles.
+
+	GetsHitByMOs = 0 // Boolean value that determines if this particle can hit by other particles.
+
+	SpriteFile = ContentFile
+		FilePath = Base.rte/Devices/Pistols/MagPistol.bmp // Tells The Magazine to use the sprite specified.
+
+	FrameCount = 1 // How many frames to use.
+
+	SpriteOffset = Vector
+		X = -3
+		Y = -3
+
+	EntryWound = AEmitter
+		CopyOf = Dent Metal // The emitter to use for where the bullet enters the weapon.
+
+	ExitWound = AEmitter
+		CopyOf = Dent Metal // The emitter to use for where the bullet exits the weapon.
+
+	AtomGroup = AtomGroup //
+
+		AutoGenerate = 1 //
+
+		Material = Material // Defines the material that the round will be made up of.
+
+			CopyOf = Military Stuff // Reference to the material you want the round to be made of.
+
+		Resolution = 4 // 
+
+		Depth = 0 //
+
+	DeepGroup = AtomGroup //
+
+		AutoGenerate = 1
+		Material = Material
+			CopyOf = Military Stuff
+		Resolution = 4
+		Depth = 10
+
+	DeepCheck = 1 //
+
+	JointStrength = 200 // How much force is required to be slung out of your grip.
+
+	JointStiffness = 1 // How much force is required to move the joint.
+
+	JointOffset = Vector
+		X = 0
+		Y = -3
+
+	DrawAfterParent = 0 // Boolean value that determines if it is drawn in front of the parent a.k.a weapon(1) or not (0).
+
+	RoundCount = 11  // How many rounds are in the magazine.
+
+	RTTRatio = 0 // RoundToTracerRatio, how many rounds:tracers.
+
+	RegularRound = Round
+		CopyOf = Round SMG // Defines which round instance to use as the regular round.
+
+	TracerRound = Round
+		CopyOf = Round SMG // Defines which round instance to use as the tracer round.
