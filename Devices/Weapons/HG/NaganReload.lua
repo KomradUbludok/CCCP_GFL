@@ -3,7 +3,7 @@ function Create(self)
 	self.loadedShell = false
 	self.reloadCycle = false
 
-	self.reloadDelay = 300
+	self.reloadDelay = 150
 
 	self.ejectedShell = false
 
