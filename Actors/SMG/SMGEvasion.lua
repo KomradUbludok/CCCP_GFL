@@ -1,8 +1,8 @@
 function Create(self)
 	self.EvasionTimer = Timer()
-	self.Duration = 275
+	self.Duration = 200
 	self.Evasion = 100
-	self.EvasionFail = 60
+	self.EvasionFail = 80
 end
 
 function Update(self)
